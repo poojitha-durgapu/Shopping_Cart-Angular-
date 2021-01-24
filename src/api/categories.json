@@ -1,0 +1,16 @@
+{
+  "categories":[
+    {
+        "id": 1,
+        "name": "Apple Products"
+      },
+      {
+        "id": 2,
+        "name": "Accessories"
+      },
+      {
+        "id": 3,
+        "name": "Clothing"
+      }
+]
+}

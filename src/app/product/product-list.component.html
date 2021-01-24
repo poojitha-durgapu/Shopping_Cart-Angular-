@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <h3 class="text-center">{{title}}</h3>
+  </div>
+  <div class="row">
+    <div class="col-sm-10 text-left">
+      <label>Search:</label>
+      <input type="text" [(ngModel)]="searchInput" />
+    </div>
+    <button type="button" class="col-sm-2 btn btn-primary" (click)="onImgBtnClick()">{{imageBtnFlag ? 'Hide' : 'Show'}}
+      Images</button>
+  </div>
+  <div class="row">
+    Search Results for {{searchInput}} :
+  </div>
+  <div class="row">
+    {{errorMessage}}
+    <div class="col-sm-3" *ngFor='let prod of searchedProducts'>
+
+      <div class="card" style="height: 250px;
+    width: 230px;">
+        <div class="card-header">
+          <img class="card-img-top" [src]='prod.imageUrl' *ngIf="imageBtnFlag" alt="Card image cap"
+            style="height:50px;width:50px" />
+        </div>
+        <div class="card-body">
+          <a [routerLink]="['/products', prod.id]">{{prod.productName}}</a>
+          <!-- <p class="card-text text-left">Code: {{prod.productCode | lowercase | convertToSpacePipe: '-'}}</p>
+        <p class="card-text text-left">Release Date: {{prod.releaseDate}}</p> -->
+          <p class="card-text text-left">Price: {{prod.price | currency: 'USD':'symbol':'1.2-2'}}</p>
+          <pm-star [rating]='prod.starRating' (notify)='OnRatingClicked($event)'></pm-star>
+          <a class="btn btn-primary" (click)="addToCart(prod)">Add To Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
