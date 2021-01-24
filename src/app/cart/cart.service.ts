@@ -9,7 +9,7 @@ import { IProduct } from '../models/products';
     providedIn: 'root'
 })
 export class CartService {
-    private cartUrl = 'http://localhost:3002/cart';
+    private cartUrl = 'http://localhost:3005/cart';
     cartDetails = [];
     httpOptions = {
         headers: new HttpHeaders({
@@ -28,6 +28,15 @@ export class CartService {
     addProductToCart(prod) {
         console.log("inside cart", prod);
         return this.http.post<IProduct>(this.cartUrl, JSON.stringify(prod), this.httpOptions)
+            .pipe(
+                tap(data => console.log(data)),
+                catchError(this.handleError)
+            )
+    }
+
+    removeItemFromCart(prod) {
+        console.log("inside cart", prod);
+        return this.http.delete<IProduct[]>(this.cartUrl+ '/' + prod.id,this.httpOptions)
             .pipe(
                 tap(data => console.log(data)),
                 catchError(this.handleError)

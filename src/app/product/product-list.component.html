@@ -27,7 +27,7 @@
           <a [routerLink]="['/products', prod.id]">{{prod.productName}}</a>
           <!-- <p class="card-text text-left">Code: {{prod.productCode | lowercase | convertToSpacePipe: '-'}}</p>
         <p class="card-text text-left">Release Date: {{prod.releaseDate}}</p> -->
-          <p class="card-text text-left">Price: {{prod.price | currency: 'USD':'symbol':'1.2-2'}}</p>
+          <p class="card-text text-center card-margins">Price: {{prod.price | currency: 'USD':'symbol':'1.2-2'}}</p>
           <pm-star [rating]='prod.starRating' (notify)='OnRatingClicked($event)'></pm-star>
           <a class="btn btn-primary" (click)="addToCart(prod)">Add To Cart</a>
         </div>

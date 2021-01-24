@@ -12,13 +12,14 @@
               <div class="card-body">
                 <a>{{prod.productName}}</a>
                 <p class="card-text text-left">Price: {{prod.price | currency: 'USD':'symbol':'1.2-2'}}</p>
+                <a class="btn btn-primary" (click)="removeItem(prod)">Remove Item</a>
               </div>
             </div>
           </div>
     </div>
-       
-   
-   
+    <div class="row border-top total">
+        <h4>Total: {{ total | currency: 'USD':'symbol':'1.2-2' }}</h4>
+    </div>
 </div>
 
 

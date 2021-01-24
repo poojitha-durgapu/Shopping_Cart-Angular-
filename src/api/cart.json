@@ -1,22 +1,6 @@
 {
   "cart": [
     {
-      "id": 2,
-      "productName": "beanie",
-      "productCode": "GDN-0023",
-      "releaseDate": "March 18, 2019",
-      "description": "Beautiful Blue Blazer",
-      "price": 32.99,
-      "starRating": 4.2,
-      "categoryId": 3,
-      "quantityInStock": 8,
-      "supplierIds": [
-        1,
-        3
-      ],
-      "imageUrl": "assets/images/Blazer.jpeg"
-    },
-    {
       "id": 3,
       "productName": "Apple Watch",
       "productCode": "TBX-0048",
@@ -33,20 +17,20 @@
       "imageUrl": "assets/images/AppleWatch.png"
     },
     {
-      "id": 4,
-      "productName": "Bracelet",
-      "productCode": "TBX-0022",
-      "releaseDate": "May 15, 2019",
-      "description": "Girls beautiful bracelet",
-      "price": 11.55,
-      "starRating": 3.7,
-      "categoryId": 2,
-      "quantityInStock": 6,
+      "id": 2,
+      "productName": "Blazer",
+      "productCode": "GDN-0023",
+      "releaseDate": "March 18, 2019",
+      "description": "Beautiful Blue Blazer",
+      "price": 32.99,
+      "starRating": 4.2,
+      "categoryId": 3,
+      "quantityInStock": 8,
       "supplierIds": [
         1,
-        4
+        3
       ],
-      "imageUrl": "assets/images/Bracelet.jpeg"
+      "imageUrl": "assets/images/Blazer.jpeg"
     }
   ]
 }

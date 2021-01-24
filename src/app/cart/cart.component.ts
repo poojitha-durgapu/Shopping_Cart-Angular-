@@ -15,15 +15,27 @@ export class CartComponent implements OnInit {
   errorMessage = '';
   product: IProduct;
   cartProducts: IProduct[] = [];
+  total: number = 0;
   constructor(private route : ActivatedRoute, private router: Router,
     private cartService: CartService) { }
      ngOnInit(): void{
       this.cartService.getCartProducts().subscribe({
         next: (response) => {
-          this.cartProducts = response
-          console.log("cartinit",response);   
+          this.cartProducts = response;
+          this.cartProducts.forEach((product: IProduct) => {
+            this.total += product.price;
+          })
         },
         error: (err: any) => this.errorMessage = err.error
       });
+      }
+
+      removeItem(product: IProduct) {
+        this.cartService.removeItemFromCart(product).subscribe({
+          next: (response) => {
+          this.cartProducts = response;  
+        },
+        error: (err: any) => this.errorMessage = err.error
+        });
       }
 }
