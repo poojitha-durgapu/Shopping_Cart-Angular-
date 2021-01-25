@@ -1,17 +1,16 @@
 <div class="container">
-  <div class="row">
-    <h3 class="text-center">{{title}}</h3>
+  <div class="row" style="margin: 16px 0;">
+    <h3 class="text-center">{{title}}  </h3>
+    <button type="button" class="btn btn-link" (click)="onImgBtnClick()">{{imageBtnFlag ? 'Hide' : 'Show'}} Images</button>
   </div>
-  <div class="row">
-    <div class="col-sm-10 text-left">
-      <label>Search:</label>
-      <input type="text" [(ngModel)]="searchInput" />
+  <div class="container">
+    <div class="row">
+      <label style="padding-right: 16px;">Search:</label>
+      <input type="search" placeholder="Search" [(ngModel)]="searchInput" />
     </div>
-    <button type="button" class="col-sm-2 btn btn-primary" (click)="onImgBtnClick()">{{imageBtnFlag ? 'Hide' : 'Show'}}
-      Images</button>
-  </div>
-  <div class="row">
-    Search Results for {{searchInput}} :
+    <div class="row" style="margin: 16px 0;">
+      Search Results for {{ searchInput ? searchInput : 'All' }} :
+    </div>
   </div>
   <div class="row">
     {{errorMessage}}
@@ -29,7 +28,8 @@
         <p class="card-text text-left">Release Date: {{prod.releaseDate}}</p> -->
           <p class="card-text text-center card-margins">Price: {{prod.price | currency: 'USD':'symbol':'1.2-2'}}</p>
           <pm-star [rating]='prod.starRating' (notify)='OnRatingClicked($event)'></pm-star>
-          <a class="btn btn-primary" (click)="addToCart(prod)">Add To Cart</a>
+          <a class="btn btn-primary" style="margin-top: 8px" (click)="addToCart(prod)">Add To Cart</a>
+          <p class="card-text text-center card-margins" style="color: red" *ngIf="apiError">{{cartError}}</p>
         </div>
       </div>
     </div>

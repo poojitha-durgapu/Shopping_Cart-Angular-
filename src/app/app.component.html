@@ -2,19 +2,22 @@
   <h1>
    {{pageTitle}}
   </h1>
-  <div class="row">
-    <div class="col-sm-2">
+  <div class="container nav-nav row bg-light" style="margin: auto;">
+        <a class="nav-item nav-link" [routerLink]="['/welcome']">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" [routerLink]="['/products']">Shop</a>
+        <a class="nav-item nav-link" [routerLink]="['/cart']">Cart</a>
+    <!-- <div class="col-sm-2">
 
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-2">
         <a [routerLink]="['/welcome']">Home</a>
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-2">
         <a [routerLink]="['/products']">Product List</a>
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-2">
       <a [routerLink]="['/cart']">Cart</a>
-  </div>
+  </div> -->
   </div>
   <router-outlet></router-outlet>
 </div>

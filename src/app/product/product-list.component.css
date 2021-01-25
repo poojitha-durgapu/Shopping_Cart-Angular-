@@ -1,3 +1,7 @@
 .card-margins {
-    margin: 16px auto;
+    margin: 8px auto;
+}
+
+pm-star {
+    display: block;
 }

@@ -1,22 +1,6 @@
 {
   "cart": [
     {
-      "id": 3,
-      "productName": "Apple Watch",
-      "productCode": "TBX-0048",
-      "releaseDate": "May 21, 2019",
-      "description": "Beautiful Watches",
-      "price": 8.9,
-      "starRating": 4.8,
-      "categoryId": 1,
-      "quantityInStock": 2,
-      "supplierIds": [
-        2,
-        4
-      ],
-      "imageUrl": "assets/images/AppleWatch.png"
-    },
-    {
       "id": 2,
       "productName": "Blazer",
       "productCode": "GDN-0023",

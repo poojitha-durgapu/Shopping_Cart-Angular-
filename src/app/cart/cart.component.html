@@ -1,25 +1,49 @@
-<div class="container">
+<div class="container cart">
+  <div class="col-12 text-left">
+    <h1>{{pageTitle}}</h1>
+  </div>
+  <div class="container border border-dark rounded" *ngIf="cartProducts.length">
     <div class="row">
-        <h3 class="text-center">{{pageTitle}}</h3>
-    </div>
-    <div class="row">
-        <div class="col-sm-3"  *ngFor='let prod of cartProducts'>
-            <div class="card" style="height: 250px;
-            width: 230px;">
-                <div class="card-header">
-              <img class="card-img-top" [src] ='prod.imageUrl'  alt="Card image cap" style="height:50px;width:50px"/>
-                </div>
-              <div class="card-body">
-                <a>{{prod.productName}}</a>
-                <p class="card-text text-left">Price: {{prod.price | currency: 'USD':'symbol':'1.2-2'}}</p>
-                <a class="btn btn-primary" (click)="removeItem(prod)">Remove Item</a>
-              </div>
-            </div>
+      <div class="col-sm-3" *ngFor='let prod of cartProducts'>
+        <div class="card" style="height: 250px;
+              width: 230px;">
+          <div class="card-header">
+            <img class="card-img-top" [src]='prod.imageUrl' alt="Card image cap" style="height:50px;width:50px" />
           </div>
+          <div class="card-body">
+            <a>{{prod.productName}}</a>
+            <p class="card-text text-center" style="margin-top: 8px;">Price: {{prod.price | currency: 'USD':'symbol':'1.2-2'}}</p>
+            <a class="btn btn-primary" (click)="removeItem(prod)">Remove Item</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row border-top" style="padding-top: 16px; margin-top: 8px;">
+        <h3 class="col-12 text-left">Shipping:</h3>
+        <h4 class="col-12 text-left">Free Shipping when order is ready</h4>
+    </div>
+    <div class="row border-top form-group" style="padding-top: 16px;"> 
+      <form>
+        <label class="col-12 text-left">Have coupon?</label>
+        <div class="col-12 input-group"> 
+          <input type="text" class="form-control coupon" name="" placeholder="Coupon code" id='coupon'>
+          <span class="input-group-append"><button type="submit" class="btn btn-primary btn-apply coupon">Apply</button></span> 
+        </div>
+      </form>
     </div>
     <div class="row border-top total">
+      <div>
+        <h3>Cart Totals</h3>
+        <h4>Taxes: {{ taxes | currency: 'USD':'symbol':'1.2-2' }}</h4>
         <h4>Total: {{ total | currency: 'USD':'symbol':'1.2-2' }}</h4>
+      </div>
     </div>
+    <div class="row border-top total">
+      <a class="btn btn-primary">Proceed To Checkout</a>
+    </div>
+  </div>
+  <div class="container" *ngIf="!cartProducts.length">
+    <div class="row text-center" style="margin: 16px 0;">Shopping Cart is Empty</div>
+    <div class="row text-center" style="margin: 16px 0;"><a [routerLink]="['/products']" class="btn btn-primary">Go to Shop</a></div>
+  </div>
 </div>
-
-

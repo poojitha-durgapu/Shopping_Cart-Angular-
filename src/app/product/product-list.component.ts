@@ -10,10 +10,12 @@ import { IProduct } from '../models/products';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  title: string = 'Product List';
+  title: string = 'Product Catalog:';
   imageBtnFlag: boolean = false;
   _searchInput = '';
   errorMessage: string = '';
+  cartError: string = 'Allowed Quantity is 1';
+  apiError: boolean = false;
   get searchInput(): string {
     return this._searchInput;
   }
@@ -49,10 +51,14 @@ export class ProductListComponent {
     this.title = 'Product List: ' + msgFromChild;
   }
   addToCart(product: IProduct[]) {
-    this.router.navigate(['/cart']);
     console.log("addedproduct", product);
-    this.cartService.addProductToCart(product).subscribe(data => {
+    this.cartService.addProductToCart(product).subscribe({
+      next: _products => this.router.navigate(['/cart']),
+      error: err =>  err ? this.apiError = true : this.apiError =false
     });
+  }
+  OnSelectedId(category){
+
   }
 
 }

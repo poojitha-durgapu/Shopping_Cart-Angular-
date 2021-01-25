@@ -4,3 +4,8 @@
     text-align: right;
     display: block;
 }
+
+.cart {
+    display: block;
+    margin-top: 32px;
+}
