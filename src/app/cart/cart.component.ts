@@ -40,7 +40,6 @@ export class CartComponent implements OnInit {
       removeItem(product: IProduct) {
         this.cartService.removeItemFromCart(product).subscribe({
           next: (response) => {
-          this.cartProducts = response;  
         },
         error: (err: any) => this.errorMessage = err.error
         });

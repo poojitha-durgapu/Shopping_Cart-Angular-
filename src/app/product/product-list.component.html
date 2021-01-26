@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row" style="margin: 16px 0;">
-    <h3 class="text-center">{{title}}  </h3>
+    <h4 class="text-center">{{title}}  </h4>
     <button type="button" class="btn btn-link" (click)="onImgBtnClick()">{{imageBtnFlag ? 'Hide' : 'Show'}} Images</button>
   </div>
   <div class="container">
@@ -28,8 +28,8 @@
         <p class="card-text text-left">Release Date: {{prod.releaseDate}}</p> -->
           <p class="card-text text-center card-margins">Price: {{prod.price | currency: 'USD':'symbol':'1.2-2'}}</p>
           <pm-star [rating]='prod.starRating' (notify)='OnRatingClicked($event)'></pm-star>
-          <a class="btn btn-primary" style="margin-top: 8px" (click)="addToCart(prod)">Add To Cart</a>
-          <p class="card-text text-center card-margins" style="color: red" *ngIf="apiError">{{cartError}}</p>
+          <button class="btn btn-primary" style="margin-top: 8px" (click)="addToCart(prod)">Add To Cart</button>
+          <!-- <p class="card-text text-center card-margins" style="color: red" *ngIf="apiError">{{cartError}}</p> -->
         </div>
       </div>
     </div>

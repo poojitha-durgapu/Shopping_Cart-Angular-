@@ -10,11 +10,11 @@ import { IProduct } from '../models/products';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  title: string = 'Product Catalog:';
+  title: string = 'Product List::';
   imageBtnFlag: boolean = false;
   _searchInput = '';
   errorMessage: string = '';
-  cartError: string = 'Allowed Quantity is 1';
+  // cartError: string = 'Allowed Quantity is 1';
   apiError: boolean = false;
   get searchInput(): string {
     return this._searchInput;
@@ -56,9 +56,6 @@ export class ProductListComponent {
       next: _products => this.router.navigate(['/cart']),
       error: err =>  err ? this.apiError = true : this.apiError =false
     });
-  }
-  OnSelectedId(category){
-
   }
 
 }
